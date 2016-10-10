@@ -16,7 +16,22 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
+    firebase: {
+      apiKey: 'AIzaSyBT5ucKW4Fu-eidoajJhHJPS7JflAvOo3Q',
+      authDomain: 'todolist-7558f.firebaseapp.com',
+      databaseURL: 'https://todolist-7558f.firebaseio.com',
+      storageBucket: 'todolist-7558f.appspot.com',
+      messagingSenderId: '494242308297'
+    },
+
   };
 
   if (environment === 'development') {
