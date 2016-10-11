@@ -9,5 +9,12 @@
 
   </div>
   <div class="col-md-8">
+    {{#each sortedTodos as |todo|}}
+      <div class="well">
+        <h4>{{todo.title}} <span class="label label-primary pull-right">{{format-date todo.date}}</span></h4>
+        <p>{{todo.body}}</p>
+      </div>
+    {{/each}}
+
   </div>
 </div>
