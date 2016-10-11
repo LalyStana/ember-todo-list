@@ -9,12 +9,35 @@
 
   </div>
   <div class="col-md-8">
-    {{#each sortedTodos as |todo|}}
-      <div class="well">
-        <h4>{{todo.title}} <span class="label label-primary pull-right">{{format-date todo.date}}</span></h4>
-        <p>{{todo.body}}</p>
-      </div>
-    {{/each}}
 
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline">
+          <div class="form-group">
+            {{input type="text" class="form-control" value=filter id="search" placeholder="Search..."}}
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12">
+        <hr>
+
+        {{#if filter}}
+          {{#each filteredTodos as |todo|}}
+            <div class="well">
+              <h4>{{todo.title}} <span class="label label-primary pull-right">{{format-date todo.date}}</span></h4>
+              <p>{{todo.body}}</p>
+            </div>
+          {{/each}}
+        {{else}}
+          {{#each sortedTodos as |todo|}}
+            <div class="well">
+              <h4>{{todo.title}} <span class="label label-primary pull-right">{{format-date todo.date}}</span></h4>
+              <p>{{todo.body}}</p>
+            </div>
+          {{/each}}
+        {{/if}}
+
+      </div>
+    </div>
   </div>
 </div>
